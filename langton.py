@@ -3,7 +3,7 @@
 import sys
 import time
 
-# the map
+# the black cells
 black = {}
 min_x_black, max_x_black, min_y_black, max_y_black = (0, 22 + 5, 0, 29 + 5)
 
@@ -54,10 +54,13 @@ def turn(position, direction):
     else:
         direction = turn_left(direction)
         black[position] = True
-        min_x_black = min(min_x_black, position[0])
-        max_x_black = max(max_x_black, position[0])
-        min_y_black = min(min_y_black, position[1])
-        max_y_black = max(max_y_black, position[1])
+
+        x, y = position
+        min_x_black = min(min_x_black, x)
+        max_x_black = max(max_x_black, x)
+        min_y_black = min(min_y_black, y)
+        max_y_black = max(max_y_black, y)
+
     return direction
 
 
